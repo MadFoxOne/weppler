@@ -1,0 +1,7 @@
+snap7
+mysql-connector-python
+smtplib
+struct
+socket
+logging
+xml.etree.ElementTree

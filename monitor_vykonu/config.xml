@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <plc>
+        <ip>172.16.4.12</ip>
+        <rack>0</rack>
+        <slot>2</slot>
+        
+        <db_energy>120</db_energy>
+        <offset_power>18</offset_power>
+        <offset_pf>98</offset_pf>
+        
+        <db_turbine_state>230</db_turbine_state>
+        <offset_turbine_state>2</offset_turbine_state>
+        <bit_turbine_state>2</bit_turbine_state>
+        
+        <db_turbine_power>106</db_turbine_power>
+        <offset_turbine_power>52</offset_turbine_power>
+    </plc>
+    
+    <limits>
+        <power_limit_1>720.0</power_limit_1>
+        <power_limit_2>750.0</power_limit_2>
+        <limit_1_duration>300</limit_1_duration>
+        <limit_2_duration>300</limit_2_duration>
+        <plc_disconnect_time>300</plc_disconnect_time>
+    </limits>
+    
+    <mysql>
+        <host>172.16.1.5</host>
+        <user>plc_user</user>
+        <password>plc_password</password>
+        <database>plc_data</database>
+    </mysql>
+    
+    <raspberry>
+        <ip>172.16.1.150</ip>
+        <port>5000</port>
+    </raspberry>
+    
+    <logging>
+        <log_file>/var/log/plc_monitor.log</log_file>
+    </logging>
+    
+    <email>
+        <smtp_server>172.16.1.20</smtp_server>
+        <smtp_port>25</smtp_port>
+        <smtp_user>merenivykonu@w-t.cz</smtp_user>
+        <smtp_password>your_password</smtp_password>
+        <recipient>odberelektriny@w-t.cz</recipient>
+        
+        <power_limit_warning_subject>Varování - překročení výkonu</power_limit_warning_subject>
+        <power_limit_warning_body>Varování!\n\nDošlo k překročení limitu výkonu %V kW po dobu delší než %S sekund!</power_limit_warning_body>
+        
+        <power_limit_panic_subject>Panika - překročení výkonu</power_limit_panic_subject>
+        <power_limit_panic_body>Panika!\n\nDošlo k překročení limitu výkonu %V kW po dobu delší než %S sekund!</power_limit_panic_body>
+        
+        <plc_disconnect_subject>Měření výkonu - ztráta spojení s PLC</plc_disconnect_subject>
+        <plc_disconnect_body>Nelze vyčítat data o výkonu. Spojení s PLC bylo přerušeno déle než %S sekund!</plc_disconnect_body>
+    </email>
+</config>
